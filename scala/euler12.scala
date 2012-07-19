@@ -1,20 +1,26 @@
 
 
-def computeTriangleNumber(n:Int):Int = {
-  return (1 to n).reduceLeft(_+_);
-}
-
 def dividers(number:Int):Seq[Int] = {
-  return (1 to number).filter { x => number % x == 0 };
+  var dividers = Array[Int]();
+  (1 to math.sqrt(number).toInt).foreach { x =>
+    if (number % x == 0) {
+      dividers = dividers :+ number;
+      val dividend = number / x;
+      if (dividend != number) {
+        dividers = dividers :+ dividend
+      }
+    }
+  }
+  return dividers;
 }
-
 
 def findTriangleNumberWithAtLeastNDividers(n:Int):Int = {
   var dividersCount:Int = 0;
   var triangleNumber:Int = 0;
   var i:Int = 1;
+
   while(dividersCount < n) {
-    triangleNumber = computeTriangleNumber(i);
+    triangleNumber = triangleNumber + i;
     dividersCount = dividers(triangleNumber).length;
     i = i + 1;
   }
