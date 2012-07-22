@@ -8,10 +8,10 @@ def computeNumberOfPaths(wayToGo:(Int,Int)):Int = {
   }
   var count = 0;
   if (wayToGo._1 >= 1) {
-    count = computeNumberOfPaths((wayToGo._1 - 1, wayToGo._2));
+    count += computeNumberOfPaths((wayToGo._1 - 1, wayToGo._2));
   }
   if (wayToGo._2 >= 1) {
-    count = computeNumberOfPaths((wayToGo._1, wayToGo._2 - 1));
+    count += computeNumberOfPaths((wayToGo._1, wayToGo._2 - 1));
   }
   return count;
 }
