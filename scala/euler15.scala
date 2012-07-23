@@ -1,12 +1,22 @@
 
+import scala.collection.mutable.Map;
 
-
-def computeNumberOfPaths(wayToGo:(Int,Int)):Long = {
+def computeNumberOfPaths(wayToGo:(Int,Int), cache:scala.collection.mutable.Map[(Int,Int),Long]):Long = {
   if (wayToGo._1 == 0 || wayToGo._2 == 0) {
     return 1;
   }
 
-  return computeNumberOfPaths((wayToGo._1 - 1, wayToGo._2)) + computeNumberOfPaths((wayToGo._1, wayToGo._2 - 1));
+  if (cache.contains(wayToGo)) {
+    return cache(wayToGo);
+  }
+
+  val count = computeNumberOfPaths((wayToGo._1 - 1, wayToGo._2),cache) + computeNumberOfPaths((wayToGo._1, wayToGo._2 - 1),cache);
+
+  cache(wayToGo) = count;
+
+  return count;
 }
 
-println(computeNumberOfPaths((20,20)));
+
+var cache = scala.collection.mutable.Map[(Int,Int),Long]()
+println(computeNumberOfPaths((20,20), cache));
