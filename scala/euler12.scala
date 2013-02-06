@@ -4,7 +4,7 @@ def dividers(number:Int):Seq[Int] = {
   var dividers = Array[Int]();
   (1 to math.sqrt(number).toInt).foreach { x =>
     if (number % x == 0) {
-      dividers = dividers :+ number;
+      dividers = dividers :+ x;
       val dividend = number / x;
       if (dividend != number) {
         dividers = dividers :+ dividend
