@@ -7,7 +7,7 @@ def dividers(number:Int):Seq[Int] = {
     if (number % x == 0) {
       dividers = dividers :+ x;
       val dividend = number / x;
-      if (dividend != number) {
+      if ((dividend != number)  && (dividend != x)) {
         dividers = dividers :+ dividend
       }
     }
