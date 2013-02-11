@@ -9,7 +9,9 @@ def getFibonacciTermWithNDigits(n:Int):Long = {
   var lastFib:BigInt = 1L;
   var nextToLastFib:BigInt = 1L;
 
-  while(lastFib.toString.length < n) {
+  val threshold:BigInt = BigInt(10).pow(n-1);
+
+  while(lastFib < threshold) {
     i = i + 1;
     val fib:BigInt = lastFib + nextToLastFib;
     nextToLastFib = lastFib;
