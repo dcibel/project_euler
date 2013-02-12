@@ -19,3 +19,4 @@ def findRecurringPattern(sequence:Seq[Int]):Seq[Int] = {
 
 
 println(findRecurringPattern(List(1,2,3,2,3)));
+println(findRecurringPattern(List(1,2,3,2,3,2,3,2,3)));
