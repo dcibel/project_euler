@@ -30,8 +30,6 @@ def findProblem49SequenceStartingWith(number:Int):Seq[Int] = {
   return Nil;
 }
 
-var numbers = (1000 to 9999).toList;
-
 (1488 to 9999).foreach { firstNumber =>
   if (isPrime(firstNumber)) {
     val matchingSequence = findProblem49SequenceStartingWith(firstNumber);
