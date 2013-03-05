@@ -12,7 +12,7 @@ def completeSquareDoublesSequenceUntil(sequence:List[Long], limit:Long):List[Lon
     newSequence = newSequence :+ (2L * nextIndex * nextIndex);
   }
 
-  return newSequence.slice(0, newSequence.length);
+  return newSequence.slice(0, newSequence.length - 1);
 }
 
 def findGoldbachConjectureCounterExample():Long = {
